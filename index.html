@@ -3,49 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>k3 · Rosary-mom Fork · Verweis ESG-Cockpit</title>
-  <meta name="description" content="Startseite des Rosary-mom-Forks von kimi-k3-in-c – Verweis auf Bio2.0/k3 ESG-Cockpit.">
+  <title>k3 · ROSARY · Magnifica Humanitas · ESG-Cockpit</title>
+  <meta name="description" content="Rosary-mom-Fork von kimi-k3-in-c – Startseite im Magnifica-Humanitas-Stil mit Verweis auf Bio2.0/k3 ESG-Cockpit.">
   <style>
-    :root { --bg:#0b1020; --panel:#141a2e; --text:#e8eefc; --muted:#a9b4d0; --accent:#5b8cff; --accent2:#c9a227; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:radial-gradient(1200px 600px at 20% -10%, #1a2450, var(--bg)); color:var(--text); line-height:1.55; }
-    main { max-width:760px; margin:0 auto; padding:2.2rem 1.25rem 3rem; }
-    h1 { font-size:1.75rem; margin:0 0 0.4rem; }
-    .muted { color:var(--muted); }
-    .card { background:var(--panel); border:1px solid #2a3558; border-radius:12px; padding:1.25rem; margin-top:1.2rem; }
-    img { display:block; width:100%; max-width:560px; height:auto; border-radius:8px; border:1px solid #33406a; margin:0.8rem 0 1rem; }
-    .btn { display:inline-block; text-decoration:none; background:var(--accent); color:#fff; font-weight:700; padding:0.55rem 0.95rem; border-radius:8px; margin:0.25rem 0.4rem 0.25rem 0; }
-    .btn.secondary { background:transparent; border:1px solid #4a5a8c; color:var(--text); }
-    .btn:hover { filter:brightness(1.08); }
-    a { color:#9ec1ff; }
-    footer { margin-top:1.5rem; font-size:0.9rem; color:var(--muted); }
-    code { background:#0e1430; padding:0.1rem 0.35rem; border-radius:4px; }
+    /* Schriften von Bio2.0 (selbst gehostet dort); Rockwell Extra Bold fällt auf Roboto Slab zurück */
+    @font-face { font-family: 'Rosario'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('https://rosary-mom.github.io/Bio2.0/fonts/rosario-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Rosario'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('https://rosary-mom.github.io/Bio2.0/fonts/rosario-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 800 900; font-display: swap; src: url('https://rosary-mom.github.io/Bio2.0/fonts/robotoslab-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 800 900; font-display: swap; src: url('https://rosary-mom.github.io/Bio2.0/fonts/robotoslab-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+    :root {
+      --bordeaux: #5C0A1A; --bordeaux-2: #800020; --bordeaux-dark: #3D0611;
+      --sand: #E8D9B5; --sand-light: #F5ECD7; --gold: #C9A227; --gold-light: #E3C35A;
+      --font-body: 'Rosario', 'Segoe UI', Arial, sans-serif;
+      --font-head: 'Rockwell Extra Bold', 'Rockwell', 'Roboto Slab', Georgia, serif;
+      --font-paladin: 'Palatino Linotype', Palatino, 'Book Antiqua', Palladio, serif;
+    }
+    html { background: var(--bordeaux); }
+    body {
+      margin: 0; font-family: var(--font-body); background: var(--bordeaux); color: var(--sand);
+      line-height: 1.65; font-size: 1.25rem; /* ~20px */
+    }
+    a { color: var(--gold-light); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    a:hover { color: var(--sand-light); }
+    a:focus-visible, .btn:focus-visible {
+      outline: 3px solid var(--gold-light); outline-offset: 3px;
+    }
+    .brand {
+      display: flex; align-items: center; justify-content: center; gap: 0.85rem;
+      padding: 1.2rem 1rem; background: var(--bordeaux-dark); border-bottom: 3px solid var(--gold);
+    }
+    .brand img { max-height: 72px; width: auto; }
+    .brand .name {
+      font-family: var(--font-head); font-weight: 900; font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--gold); letter-spacing: 0.02em;
+    }
+    header.hero {
+      text-align: center; padding: 2.4rem 1.25rem 2rem;
+      background: linear-gradient(135deg, var(--bordeaux-dark), var(--bordeaux-2));
+      border-bottom: 3px solid var(--gold);
+    }
+    .kicker {
+      display: inline-block; background: var(--gold); color: var(--bordeaux-dark);
+      font-family: var(--font-head); font-weight: 900; padding: 0.35rem 0.9rem;
+      border-radius: 3px; font-size: 1rem; letter-spacing: 0.04em;
+    }
+    h1 {
+      font-family: var(--font-head); font-weight: 900; color: var(--gold);
+      font-size: clamp(2rem, 5.5vw, 3rem); margin: 0.9rem 0 0.5rem;
+      text-shadow: 2px 2px 0 #000; letter-spacing: 0.01em;
+    }
+    .paladin { font-family: var(--font-paladin); font-style: italic; font-size: 1.35rem; color: var(--sand-light); max-width: 42rem; margin: 0.6rem auto 0; }
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h2 {
+      font-family: var(--font-head); font-weight: 900; color: var(--gold);
+      font-size: clamp(1.45rem, 3vw, 1.85rem); border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.35rem; margin: 0 0 1rem;
+    }
+    .card {
+      background: var(--bordeaux-2); color: var(--sand); border: 2px solid var(--gold);
+      border-radius: 8px; padding: 1.5rem; box-shadow: 0 6px 18px rgba(0,0,0,0.35); margin-bottom: 1.4rem;
+    }
+    .card img {
+      display: block; width: 100%; max-width: 640px; height: auto; margin: 0.9rem auto;
+      border: 2px solid var(--gold); border-radius: 6px;
+    }
+    .btn {
+      display: inline-block; background: var(--gold); color: var(--bordeaux-dark) !important;
+      border: 3px solid var(--gold); padding: 0.85rem 1.35rem; margin: 0.35rem 0.45rem 0.35rem 0;
+      font-family: var(--font-head); font-weight: 900; font-size: 1.15rem; text-decoration: none !important;
+      border-radius: 4px; cursor: pointer; line-height: 1.2;
+    }
+    .btn:hover { background: var(--gold-light); border-color: var(--gold-light); transform: scale(1.02); }
+    .btn-outline {
+      background: transparent !important; color: var(--gold) !important; border-color: var(--gold) !important;
+    }
+    .btn-outline:hover { background: rgba(201,162,39,0.15) !important; color: var(--sand-light) !important; }
+    .note { font-family: var(--font-paladin); font-size: 1.15rem; }
+    footer {
+      text-align: center; padding: 1.6rem 1rem 2.2rem; border-top: 2px solid var(--gold);
+      font-family: var(--font-paladin); color: var(--sand); font-size: 1.05rem;
+    }
+    @media (max-width: 600px) {
+      body { font-size: 1.15rem; }
+      .btn { display: block; width: 100%; box-sizing: border-box; text-align: center; margin: 0.45rem 0; }
+    }
   </style>
 </head>
 <body>
-<main>
-  <p class="muted" style="margin:0 0 0.4rem; letter-spacing:0.04em; text-transform:uppercase; font-size:0.78rem;">Rosary-mom · Fork-Startseite</p>
-  <h1>k3 → ESG-Cockpit auf Bio2.0</h1>
-  <p class="muted">Dieses Repository ist unser Fork von <strong>kimi-k3-in-c</strong>. Die lebendige Modellrechnung für die KI-/ESG-Beratung liegt unter <strong>Bio2.0/k3</strong> (Colab, T4).</p>
-
-  <div class="card">
-    <p style="margin-top:0;"><strong>Beispiel:</strong> ESG-Cockpit – Modellrechnung</p>
-    <img src="https://rosary-mom.github.io/Bio2.0/k3/dashboard_main.png" width="560" height="315" alt="ESG-Cockpit Dashboard – Vorschau der Modellrechnung auf Bio2.0/k3">
-    <p>
-      <a class="btn" href="https://rosary-mom.github.io/Bio2.0/k3/">Zu Bio2.0/k3</a>
-      <a class="btn secondary" href="https://colab.research.google.com/github/Rosary-mom/Bio2.0/blob/main/k3/ESG_Cockpit.ipynb">ESG-Cockpit in Colab</a>
-      <a class="btn secondary" href="https://rosary-mom.github.io/Bio2.0/">Bio2.0 Startseite</a>
-    </p>
+  <div class="brand" role="banner">
+    <img src="https://rosary-mom.github.io/Bio2.0/assets/Rosary%20LOGO%2022.08.2025.png" width="72" height="72" alt="ROSARY Logo – Rosenkranz">
+    <span class="name">ROSARY</span>
   </div>
 
-  <div class="card">
-    <p style="margin-top:0;"><strong>Attribution / Lizenz</strong></p>
-    <p class="muted" style="margin-bottom:0;">Dies ist ein Fork von <a href="https://github.com/FareedKhan-dev/kimi-k3-in-c">FareedKhan-dev/kimi-k3-in-c</a> unter der <a href="LICENSE">Apache License 2.0</a>. Upstream-Code und README bleiben unverändert; diese <code>index.html</code> ist nur die Fork-Startseite mit Verweis auf unser ESG-Cockpit.</p>
-  </div>
+  <header class="hero">
+    <span class="kicker">MAGNIFICA HUMANITAS · ROSARY</span>
+    <h1>k3 → ESG-Cockpit</h1>
+    <p class="paladin">Fork-Startseite: Verweis auf die lebendige Modellrechnung unter Bio2.0/k3 — große Schrift, hoher Kontrast, inkludiert lesbar.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="beispiel">
+      <h2 id="beispiel">Beispiel: ESG-Cockpit – Modellrechnung</h2>
+      <p class="note">Colab Free / T4. Entscheidungs-Cockpit zur Essay-Fassung <em>Emergente KI-Forschung</em> (EKIR / EAIR).</p>
+      <img src="https://rosary-mom.github.io/Bio2.0/k3/dashboard_main.png" width="640" height="360" alt="ESG-Cockpit Dashboard – Vorschau der Modellrechnung auf Bio2.0/k3">
+      <p>
+        <a class="btn" href="https://rosary-mom.github.io/Bio2.0/k3/">Zu Bio2.0/k3</a>
+        <a class="btn" href="https://colab.research.google.com/github/Rosary-mom/Bio2.0/blob/main/k3/ESG_Cockpit.ipynb">ESG-Cockpit in Colab</a>
+        <a class="btn btn-outline" href="https://rosary-mom.github.io/Bio2.0/">Bio2.0 Startseite</a>
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="lizenz">
+      <h2 id="lizenz">Attribution / Lizenz</h2>
+      <p class="note">Dies ist ein Fork von <a href="https://github.com/FareedKhan-dev/kimi-k3-in-c">FareedKhan-dev/kimi-k3-in-c</a> unter der <a href="LICENSE">Apache License 2.0</a>. Upstream-Code bleibt unverändert; diese Startseite verweist nur auf unser ESG-Cockpit.</p>
+      <p class="note">Repo: <a href="https://github.com/Rosary-mom/k3">github.com/Rosary-mom/k3</a></p>
+    </section>
+  </main>
 
   <footer>
-    Repo: <a href="https://github.com/Rosary-mom/k3">github.com/Rosary-mom/k3</a>
+    Magnifica Humanitas · Rockwell Extra Bold · Paladin (Palatino) · hoher Kontrast · inkludiert lesbar
   </footer>
-</main>
 </body>
 </html>
