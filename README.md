@@ -1,3 +1,5 @@
+> **Rosary-mom:** Startseite/Pages → https://rosary-mom.github.io/k3/ · ESG-Cockpit → https://rosary-mom.github.io/Bio2.0/k3/
+
 <div align="center">
 
 <h1>kimi-k3-in-c</h1>
